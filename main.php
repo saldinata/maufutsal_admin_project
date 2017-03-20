@@ -1,0 +1,195 @@
+<?php
+  require_once("libs/act.class.php");
+  require_once("libs/auth.class.php");
+  require_once("libs/database.class.php");
+  require_once("libs/utility.class.php");
+  require_once("libs/class.smtp.php");
+  require_once("libs/phpmailer.php");
+  require_once("libs/header.class.php");
+
+  $db   = new Database();
+  $util = new Utility();
+  $auth = new Authentication($db,$util);
+  $act  = new ActivityApps($db,$util,$auth);
+  $mail = new PHPMailer();
+  $head = new Header();
+?>
+
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<?php
+  echo $head->getMetaInformation();
+  echo $head->getTitle();
+  echo $head->getLink();
+  echo $head->getScript();
+?>
+
+<!-- DataTables -->
+<link href="plugins/datatables/jquery.dataTables.min.css" rel="stylesheet" type="text/css"/>
+<link href="plugins/datatables/buttons.bootstrap.min.css" rel="stylesheet" type="text/css"/>
+<link href="plugins/datatables/fixedHeader.bootstrap.min.css" rel="stylesheet" type="text/css"/>
+<link href="plugins/datatables/responsive.bootstrap.min.css" rel="stylesheet" type="text/css"/>
+<link href="plugins/datatables/scroller.bootstrap.min.css" rel="stylesheet" type="text/css"/>
+<link href="plugins/datatables/dataTables.colVis.css" rel="stylesheet" type="text/css"/>
+<link href="plugins/datatables/dataTables.bootstrap.min.css" rel="stylesheet" type="text/css"/>
+<link href="plugins/datatables/fixedColumns.dataTables.min.css" rel="stylesheet" type="text/css"/>
+
+<script src="assets/js/jquery.min.js"></script>
+</head>
+
+<body class="fixed-left">
+    <div id="preloader">
+        <div id="status">
+            <div class="spinner">
+              <div class="spinner-wrapper">
+                <div class="rotator">
+                  <div class="inner-spin"></div>
+                  <div class="inner-spin"></div>
+                </div>
+              </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="wrapper">
+            <div class="topbar">
+                <div class="topbar-left">
+                    <a href="index-2.html" class="logo"><span style="font-size:18px;">Internal <span style="font-size:18px;">Platform</span></span><i class="mdi mdi-cube"></i></a>
+                </div>
+
+                <div class="navbar navbar-default" role="navigation">
+                    <div class="container">
+                        <ul class="nav navbar-nav navbar-left">
+                            <li>
+                                <button class="button-menu-mobile open-left waves-effect waves-light">
+                                    <i class="mdi mdi-menu"></i>
+                                </button>
+                            </li>
+                        </ul>
+
+                        <ul class="nav navbar-nav navbar-right">
+                            <li class="dropdown user-box">
+                                <a href="#" class="dropdown-toggle waves-effect waves-light user-link" data-toggle="dropdown" aria-expanded="true">
+                                    <img src="assets/images/users/avatar-1.jpg" alt="user-img" class="img-circle user-img">
+                                </a>
+
+                                <ul class="dropdown-menu dropdown-menu-right arrow-dropdown-menu arrow-menu-right user-list notify-list">
+                                    <li>
+                                        <h5>Hi, John</h5>
+                                    </li>
+                                    <li><a href="javascript:void(0)"><i class="ti-user m-r-5"></i> Profile</a></li>
+                                    <li><a href="javascript:void(0)"><i class="ti-settings m-r-5"></i> Settings</a></li>
+                                    <li><a href="javascript:void(0)"><i class="ti-lock m-r-5"></i> Lock screen</a></li>
+                                    <li><a href="javascript:void(0)"><i class="ti-power-off m-r-5"></i> Logout</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="left side-menu">
+                <div class="sidebar-inner slimscrollleft">
+                    <?php
+                      require_once('components/sidebar.php');
+                    ?>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+
+            <div class="content-page">
+              <?php
+                  if(isset($_GET['mov']))
+                  {
+                    include('pages/'.$_GET['mov'].'.php');
+                  }
+                  else
+                  {
+                    include('pages/dashboard.php');
+                  }
+              ?>
+
+              <?php
+                 require_once('components/footer.php');
+              ?>
+            </div>
+        </div>
+
+      <script>
+          var resizefunc = [];
+      </script>
+
+      <script src="assets/js/bootstrap.min.js"></script>
+      <script src="assets/js/detect.js"></script>
+      <script src="assets/js/fastclick.js"></script>
+      <script src="assets/js/jquery.blockUI.js"></script>
+      <script src="assets/js/waves.js"></script>
+      <script src="assets/js/jquery.slimscroll.js"></script>
+      <script src="assets/js/jquery.scrollTo.min.js"></script>
+      <script src="plugins/switchery/switchery.min.js"></script>
+      <script src="plugins/waypoints/jquery.waypoints.min.js"></script>
+      <script src="plugins/counterup/jquery.counterup.min.js"></script>
+  		<script src="plugins/morris/morris.min.js"></script>
+  		<script src="plugins/raphael/raphael-min.js"></script>
+      <script src="assets/pages/jquery.dashboard.js"></script>
+      <script src="assets/js/jquery.core.js"></script>
+      <script src="assets/js/jquery.app.js"></script>
+
+
+      <script src="plugins/datatables/jquery.dataTables.min.js"></script>
+      <script src="plugins/datatables/dataTables.bootstrap.js"></script>
+      <script src="plugins/datatables/dataTables.buttons.min.js"></script>
+      <script src="plugins/datatables/buttons.bootstrap.min.js"></script>
+      <script src="plugins/datatables/jszip.min.js"></script>
+      <script src="plugins/datatables/pdfmake.min.js"></script>
+      <script src="plugins/datatables/vfs_fonts.js"></script>
+      <script src="plugins/datatables/buttons.html5.min.js"></script>
+      <script src="plugins/datatables/buttons.print.min.js"></script>
+      <script src="plugins/datatables/dataTables.fixedHeader.min.js"></script>
+      <script src="plugins/datatables/dataTables.keyTable.min.js"></script>
+      <script src="plugins/datatables/dataTables.responsive.min.js"></script>
+      <script src="plugins/datatables/responsive.bootstrap.min.js"></script>
+      <script src="plugins/datatables/dataTables.scroller.min.js"></script>
+      <script src="plugins/datatables/dataTables.colVis.js"></script>
+      <script src="plugins/datatables/dataTables.fixedColumns.min.js"></script>
+      <script src="assets/pages/jquery.datatables.init.js"></script>
+
+      <script type="text/javascript">
+          $(document).ready(function ()
+          {
+              $('#datatable').dataTable();
+              $('#datatable-keytable').DataTable({keys: true});
+              $('#datatable-responsive').DataTable();
+              $('#datatable-colvid').DataTable({
+                  "dom": 'C<"clear">lfrtip',
+                  "colVis": {
+                      "buttonText": "Change columns"
+                  }
+              });
+              $('#datatable-scroller').DataTable({
+                  ajax: "plugins/datatables/json/scroller-demo.json",
+                  deferRender: true,
+                  scrollY: 380,
+                  scrollCollapse: true,
+                  scroller: true
+              });
+              var table = $('#datatable-fixed-header').DataTable({fixedHeader: true});
+              var table = $('#datatable-fixed-col').DataTable({
+                  scrollY: "300px",
+                  scrollX: true,
+                  scrollCollapse: true,
+                  paging: false,
+                  fixedColumns: {
+                      leftColumns: 1,
+                      rightColumns: 1
+                  }
+              });
+          });
+          TableManageButtons.init();
+      </script>
+      </body>
+</html>
