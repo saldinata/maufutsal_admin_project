@@ -1,55 +1,4 @@
-<div class="content">
-  <div class="container">
-    <div class="row">
-      <div class="col-xs-12">
-        <div class="page-title-box">
-            <h4 class="page-title">Permintaan Item</h4>
-            <div class="clearfix"></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="card-box table-responsive">
-          <h4 class="m-t-0 header-title"><b>Daftar Permintaan</b></h4>
-          <table id="datatable" class="table table-striped table-colored table-info">
-            <thead>
-              <tr>
-                  <th style="width: 200px; text-transform: none;text-align: center;">Futsal</th>
-
-                  <th style="width: 100px; text-transform: none;text-align: center;">Id Futsal</th>
-
-                  <th style="width: 10px; text-transform: none;text-align: center;">Kota</th>
-
-                  <th style="width: 10px; text-transform: none;text-align: center;">Tanggal Pengajuan</th>
-
-                  <th style="width: 10px; text-transform: none;text-align: center;">Nominal</th>
-
-                  <th style="width: 10px; text-transform: none;text-align: center;">Kuantitas</th>
-
-                  <th style="width: 10px; text-transform: none;text-align: center;">Pembayaran</th>
-
-                  <th style="width: 100px; text-transform: none;text-align: center;">Opsi</th>
-              </tr>
-            </thead>
-
-            <tbody id="list_">
-              <tr>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-              </tr>
-          </tbody>
-          </table>
-        </div>
-    </div>
-  </div>
-</div>
+<script src="assets/js/jquery.min.js"></script>
 
 <script>
   var content   = "";
@@ -66,7 +15,7 @@
       type        : "POST",
       url         : "http://www.maufutsal.com/api_mf/development.php",
       dataType    : "JSON",
-      data        : "type=reqgetdistorder",
+      data        : "type=reqdistordereg"+"&id_user="+"0"+"&date="+"22/03/2017"+"&nominal="+"5000"+"&quantity="+"1",
       contentType : "application/x-www-form-urlencoded; charset=UTF-8",
       cache       : false,
       success     : function(JSONObject)
