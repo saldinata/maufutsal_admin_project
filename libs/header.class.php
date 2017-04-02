@@ -43,6 +43,26 @@ class Header
 
     return $data;
   }
+
+  public function getDatabaseCSS()
+  {
+    $data = "<link href=\"plugins/datatables/jquery.dataTables.min.css\" rel=\"stylesheet\" type=\"text/css\"/>";
+    $data .= "<link href=\"plugins/datatables/buttons.bootstrap.min.css\" rel=\"stylesheet\" type=\"text/css\"/>";
+    $data .= "<link href=\"plugins/datatables/fixedHeader.bootstrap.min.css\" rel=\"stylesheet\" type=\"text/css\"/>";
+    $data .="<link href=\"plugins/datatables/responsive.bootstrap.min.css\" rel=\"stylesheet\" type=\"text/css\"/>";
+    $data .="<link href=\"plugins/datatables/scroller.bootstrap.min.css\" rel=\"stylesheet\" type=\"text/css\"/>";
+    $data .="<link href=\"plugins/datatables/dataTables.colVis.css\" rel=\"stylesheet\" type=\"text/css\"/>";
+    $data .= "<link href=\"plugins/datatables/dataTables.bootstrap.min.css\" rel=\"stylesheet\" type=\"text/css\"/>";
+    $data .="<link href=\"plugins/datatables/fixedColumns.dataTables.min.css\" rel=\"stylesheet\" type=\"text/css\"/>";
+
+    return $data;
+  }
+
+  public function getJquery()
+  {
+    $data = "<script src=\"assets/js/jquery.min.js\"></script>";
+    return $data;
+  }
 }
 
 

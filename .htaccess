@@ -1,5 +1,5 @@
 #Serve Alternate Default Index Page
-DirectoryIndex main.php
+DirectoryIndex login.php
 
 #Disable Directory Browsing
 Options All -Indexes

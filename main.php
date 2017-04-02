@@ -25,19 +25,10 @@
   echo $head->getTitle();
   echo $head->getLink();
   echo $head->getScript();
+  echo $head->getDatabaseCSS();
+  echo $head->getJquery();
 ?>
 
-<!-- DataTables -->
-<link href="plugins/datatables/jquery.dataTables.min.css" rel="stylesheet" type="text/css"/>
-<link href="plugins/datatables/buttons.bootstrap.min.css" rel="stylesheet" type="text/css"/>
-<link href="plugins/datatables/fixedHeader.bootstrap.min.css" rel="stylesheet" type="text/css"/>
-<link href="plugins/datatables/responsive.bootstrap.min.css" rel="stylesheet" type="text/css"/>
-<link href="plugins/datatables/scroller.bootstrap.min.css" rel="stylesheet" type="text/css"/>
-<link href="plugins/datatables/dataTables.colVis.css" rel="stylesheet" type="text/css"/>
-<link href="plugins/datatables/dataTables.bootstrap.min.css" rel="stylesheet" type="text/css"/>
-<link href="plugins/datatables/fixedColumns.dataTables.min.css" rel="stylesheet" type="text/css"/>
-
-<script src="assets/js/jquery.min.js"></script>
 </head>
 
 <body class="fixed-left">
