@@ -73,7 +73,7 @@ class ActivityApps
 				}
 			}
 		}
-		
+
 		else
 		{
 			array_push($dataRespons,
@@ -85,6 +85,50 @@ class ActivityApps
 		}
 
 		echo json_encode($dataRespons, JSON_PRETTY_PRINT);
+	}
+
+
+	public function reqstoredistpro($dist_name,$dist_product,$dist_price,$dist_note)
+	{
+			$dataRespons = [];
+
+			$dist_name		= $this->util->sanitation($dist_name);
+			$dist_product = $this->util->sanitation($dist_product);
+			$dist_price 	= $this->util->sanitation($dist_price);
+			$dist_note		= $this->util->sanitation($dist_note);
+
+			$query = "SELECT * FROM tbl_distributor WHERE code_dist=?";
+			$result_get_id = $this->db->getValue($query,[$dist_name]);
+
+			if($result_get_id)
+			{
+				$id_dist = $result_get_id['id_dist'];
+
+				$query = "INSERT INTO tbl_product_dist(nama_product,id_dist,price,note) VALUES(?,?,?,?)";
+
+				$result_store_dist_product = $this->db->insertValue($query,[$dist_name,$id_dist,$dist_price,$dist_note]);
+
+				if($result_store_dist_product)
+				{
+					array_push($dataRespons,
+						[
+							'type' 		=> 'resstoredistpro',
+							'state'		=> 'success'
+						]
+					);
+				}
+			}
+			else
+			{
+				array_push($dataRespons,
+					[
+						'type' 		=> 'resstoredistpro',
+						'state'		=> 'fail'
+					]
+				);
+			}
+
+			echo json_encode($dataRespons, JSON_PRETTY_PRINT);
 	}
 
 }

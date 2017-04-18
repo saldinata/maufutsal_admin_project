@@ -20,6 +20,10 @@
       $act->reqstoredistdat($_POST['dist_name'],$_POST['dist_addr'],$_POST['dist_pic'],$_POST['dist_private_phone'],$_POST['dist_office_phone'],$_POST['dist_mail']);
       break;
 
+      case 'reqstoredistpro':
+      $act->reqstoredistpro($_POST['dist_name'],$_POST['dist_product'],$_POST['dist_price'],$_POST['dist_note']);
+      break;
+
       default:
       break;
     }

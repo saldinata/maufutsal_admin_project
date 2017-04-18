@@ -20,8 +20,9 @@
             <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-view-dashboard"></i><span> Distributor Utility </span> <span class="menu-arrow"></span></a>
             <ul class="list-unstyled">
                 <li><a href="entry_dist">Entry Distributor</a></li>
-                <li><a href="show_dist">Data Distributor</a></li>
+                <li><a href="show_dist">Show Data Distributor</a></li>
                 <li><a href="entry_product_dist">Entry Product Distributor</a></li>
+                <li><a href="show_product_dist">Show Product Distributor</a></li>
                 <li><a href="item_demand">Permintaan item</a></li>
                 <li><a href="#">Status Pengajuan</a></li>
             </ul>

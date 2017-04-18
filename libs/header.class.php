@@ -55,6 +55,13 @@ class Header
     $data .= "<link href=\"plugins/datatables/dataTables.bootstrap.min.css\" rel=\"stylesheet\" type=\"text/css\"/>";
     $data .="<link href=\"plugins/datatables/fixedColumns.dataTables.min.css\" rel=\"stylesheet\" type=\"text/css\"/>";
 
+    $data .="<link href=\"plugins/bootstrap-tagsinput/css/bootstrap-tagsinput.css\" ;rel=\"stylesheet/\" />";
+    $data .="<link href=\"plugins/multiselect/css/multi-select.css\"  rel=\"stylesheet\" type=\"text/css\" />";
+    $data .= "<link href=\"plugins/select2/css/select2.min.css\" rel=\"stylesheet\" type=\"text/css\" />";
+    $data .="<link href=\"plugins/bootstrap-select/css/bootstrap-select.min.css\" rel=\"stylesheet\" />";
+    $data .="<link href=\"plugins/bootstrap-touchspin/css/jquery.bootstrap-touchspin.min.css\" rel=\"stylesheet\" />";
+
+
     return $data;
   }
 

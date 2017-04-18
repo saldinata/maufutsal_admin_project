@@ -30,6 +30,7 @@ RewriteRule ^social\/?$ main.php?mov=social [NC]
 RewriteRule ^entry_dist\/?$ main.php?mov=entry_dist [NC]
 RewriteRule ^entry_product_dist\/?$ main.php?mov=entry_product_dist [NC]
 RewriteRule ^show_dist\/?$ main.php?mov=show_dist [NC]
+RewriteRule ^show_product_dist\/?$ main.php?mov=show_product_dist [NC]
 
 ErrorDocument 401 /error_page/401.php
 ErrorDocument 403 /error_page/403.php
