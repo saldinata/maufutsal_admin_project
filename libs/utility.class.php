@@ -184,18 +184,18 @@ class Utility
 	}
 
 
-	public  function safe_b64encode($string) 
+	public  function safe_b64encode($string)
 	{
         $data = base64_encode($string);
         $data = str_replace(array('+','/','='),array('-','_',''),$data);
         return $data;
     }
 
-    public function safe_b64decode($string) 
+    public function safe_b64decode($string)
     {
         $data = str_replace(array('-','_'),array('+','/'),$string);
         $mod4 = strlen($data) % 4;
-        if ($mod4) 
+        if ($mod4)
         {
             $data .= substr('====', $mod4);
         }
@@ -203,7 +203,7 @@ class Utility
     }
 
 	public function encode($word)
-	{ 
+	{
         if(!$word)
         {
         	return false;
@@ -213,7 +213,7 @@ class Utility
         $iv_size 	= mcrypt_get_iv_size(MCRYPT_RIJNDAEL_256, MCRYPT_MODE_ECB);
         $iv 		= mcrypt_create_iv($iv_size, MCRYPT_RAND);
         $crypttext 	= mcrypt_encrypt(MCRYPT_RIJNDAEL_256, $this->skey, $text, MCRYPT_MODE_ECB, $iv);
-        return trim($this->safe_b64encode($crypttext)); 
+        return trim($this->safe_b64encode($crypttext));
     }
 
     public function decode($word)
@@ -223,7 +223,7 @@ class Utility
         	return false;
         }
 
-        $crypttext 		= $this->safe_b64decode($word); 
+        $crypttext 		= $this->safe_b64decode($word);
         $iv_size 		= mcrypt_get_iv_size(MCRYPT_RIJNDAEL_256, MCRYPT_MODE_ECB);
         $iv 			= mcrypt_create_iv($iv_size, MCRYPT_RAND);
         $decrypttext 	= mcrypt_decrypt(MCRYPT_RIJNDAEL_256, $this->skey, $crypttext, MCRYPT_MODE_ECB, $iv);
@@ -254,11 +254,16 @@ class Utility
 	public function setStringToArray($word)
 	{
 		return explode(",", $word);
-	}	
+	}
 
 	public function calcArrayIndex($array_data)
 	{
 		return sizeof($array_data);
+	}
+
+	public function sanitation($word)
+	{
+		return htmlentities(addslashes($word));
 	}
 }
 

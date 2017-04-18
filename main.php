@@ -32,7 +32,7 @@
 </head>
 
 <body class="fixed-left">
-    <div id="preloader">
+    <!-- <div id="preloader">
         <div id="status">
             <div class="spinner">
               <div class="spinner-wrapper">
@@ -43,15 +43,15 @@
               </div>
             </div>
         </div>
-    </div>
+    </div> -->
 
     <div id="wrapper">
             <div class="topbar">
-                <div class="topbar-left">
+                <div class="topbar-left" style="background:#61ad18;">
                     <a href="index-2.html" class="logo"><span style="font-size:18px;">Internal <span style="font-size:18px;">Platform</span></span><i class="mdi mdi-cube"></i></a>
                 </div>
 
-                <div class="navbar navbar-default" role="navigation">
+                <div class="navbar navbar-default" role="navigation" style="background-color:#7ab915;">
                     <div class="container">
                         <ul class="nav navbar-nav navbar-left">
                             <li>
