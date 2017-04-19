@@ -65,7 +65,7 @@
 <script type="text/javascript">
   var initApps = function()
   {
-
+    TAPIGETALLPRODIST();
   };
 
   var url = "API_admin/apiadmin.php";
@@ -111,6 +111,23 @@
               }
             }
           }
+        }
+    });
+    return false;
+  }
+
+  function TAPIGETALLPRODIST()
+  {
+    $.ajax
+    ({
+        type      : "POST",
+        url       : url,
+        dataType  : "JSON",
+        data      : "type=reqgetalldistpro",
+        cache     : false,
+        success   : function(JSONObject)
+        {
+          console.log(JSONObject);
         }
     });
     return false;

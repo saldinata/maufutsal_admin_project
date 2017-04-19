@@ -28,12 +28,12 @@ class ActivityApps
 	{
 		$dataRespons = [];
 
-		$dist_name					= $this->util->sanitation($dist_name);
-		$dist_addr					= $this->util->sanitation($dist_addr);
-		$dist_pic						= $this->util->sanitation($dist_pic);
+		$dist_name				= $this->util->sanitation($dist_name);
+		$dist_addr				= $this->util->sanitation($dist_addr);
+		$dist_pic				= $this->util->sanitation($dist_pic);
 		$dist_private_phone	= $this->util->sanitation($dist_private_phone);
 		$dist_office_phone	= $this->util->sanitation($dist_office_phone);
-		$dist_mail					= $this->util->sanitation($dist_mail);
+		$dist_mail				= $this->util->sanitation($dist_mail);
 
 		$req_distcode 			= json_decode($this->createDistCode());
 		$dist_code 					= $req_distcode->{'distcode'};
@@ -93,7 +93,7 @@ class ActivityApps
 			$dataRespons = [];
 
 			$dist_name		= $this->util->sanitation($dist_name);
-			$dist_product = $this->util->sanitation($dist_product);
+			$dist_product 	= $this->util->sanitation($dist_product);
 			$dist_price 	= $this->util->sanitation($dist_price);
 			$dist_note		= $this->util->sanitation($dist_note);
 
@@ -129,6 +129,57 @@ class ActivityApps
 			}
 
 			echo json_encode($dataRespons, JSON_PRETTY_PRINT);
+	}
+
+
+	public function reqgetalldistpro()
+	{
+		$dataRespons = [];
+
+		$query = "SELECT * FROM tbl_product_dist";
+		$result_get_all_product = $this->db->getAllValue($query);
+
+		if(!empty($result_get_all_product))
+		{
+			foreach($result_get_all_product as $product_data)
+			{
+				$product_name 	= $product_data['nama_product'];
+				$price 			= $product_data['price'];
+				$note 			= $product_data['note'];
+				$id_dist 		= $product_data['id_dist'];
+				$product_id		= $product_data['id_product_dist'];
+
+				$query = "SELECT * FROM tbl_distributor WHERE id_dist=?";
+				$result_dist_info =	$this->db->getValue($query,[$id_dist]);
+
+				$dist_name = $result_dist_info['nama_dist'];
+
+				array_push($dataRespons,
+				[
+					'type'				=> 'resgetalldistpro',
+					'product_name' 	=> $product_name,
+					'product_id'		=> $product_id,
+					'price'				=> $price,
+					'note'				=> $note,
+					'distributor'		=> $dist_name
+				]);
+			}
+
+		}
+		else
+		{
+			array_push($dataRespons,
+			[
+				'type'			=> 'resgetalldistpro',
+				'product_name' => 'none',
+				'product_id' 	=> 'none',
+				'price'			=> 'none',
+				'note'			=> 'none',
+				'distributor'	=> 'none'
+			]);
+		}
+
+		echo json_encode($dataRespons, JSON_PRETTY_PRINT);
 	}
 
 }

@@ -24,6 +24,10 @@
       $act->reqstoredistpro($_POST['dist_name'],$_POST['dist_product'],$_POST['dist_price'],$_POST['dist_note']);
       break;
 
+      case 'reqgetalldistpro':
+      $act->reqgetalldistpro();
+      break;
+
       default:
       break;
     }
