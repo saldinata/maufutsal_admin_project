@@ -28,6 +28,10 @@
       $act->reqgetalldistpro();
       break;
 
+      case 'reqorderdistpro':
+      $act->reqorderdistpro($_POST['futsal_code'],$_POST['nominal'],$_POST['id_product']);
+      break;
+
       default:
       break;
     }

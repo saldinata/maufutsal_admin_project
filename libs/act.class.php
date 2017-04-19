@@ -182,6 +182,42 @@ class ActivityApps
 		echo json_encode($dataRespons, JSON_PRETTY_PRINT);
 	}
 
+
+	public function reqorderdistpro($futsal_code,$nominal,$id_product)
+	{
+		$futsal_code 	= $this->util->sanitation($futsal_code);
+		$nominal			= $this->util->sanitation($nominal);
+		$id_product 	= $this->util->sanitation($id_product);
+		$dateTransaction 	= $this->util->getDateTimeToday();
+		$order_code			= mt_rand();
+		$dataRespons 		= [];
+
+		$query = "INSERT INTO tbl_order_third_party(tanggal, code_futsal, nominal, code_order, id_product_dist) VALUES(?,?,?,?,?)";
+		$result_insert_data = $this->db->insertValue($query,[$dateTransaction,$futsal_code,$nominal,$order_code,$id_product]);
+
+
+		if($result_insert_data)
+		{
+			array_push($dataRespons,
+			[
+				'type'			=> 'resorderdistpro',
+				'state'			=>	'succes',
+				'code_order'	=> $order_code
+			]);
+		}
+		else
+		{
+			array_push($dataRespons,
+			[
+				'type'			=> 'resorderdistpro',
+				'state'			=>	'failed',
+				'code_order'	=> '-'
+			]);
+		}
+
+		echo json_encode($dataRespons, JSON_PRETTY_PRINT);
+	}
+
 }
 
 ?>

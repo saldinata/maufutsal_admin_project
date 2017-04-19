@@ -66,6 +66,7 @@
   var initApps = function()
   {
     TAPIGETALLPRODIST();
+    TAPIORDERPRODIST();
   };
 
   var url = "API_admin/apiadmin.php";
@@ -131,6 +132,23 @@
         }
     });
     return false;
+  }
+
+  function TAPIORDERPRODIST()
+  {
+     $.ajax
+     ({
+         type      : "POST",
+         url       : url,
+         dataType  : "JSON",
+         data      : "type=reqorderdistpro"+"&futsal_code=1234"+"&nominal=20000"+"&id_product=1",
+         cache     : false,
+         success   : function(JSONObject)
+         {
+           console.log(JSONObject);
+         }
+     });
+     return false;
   }
 
 </script>
