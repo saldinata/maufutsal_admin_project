@@ -32,6 +32,34 @@
          $act->reqorderdistpro($_POST['futsal_code'],$_POST['nominal'],$_POST['id_product']);
       break;
 
+      case 'reqchklogin':
+         $auth->reqchklogin($_POST['user'],$_POST['pass']);
+      break;
+
+      case 'reqsaveaboutcontent':
+         $act->reqsaveaboutcontent($_POST['contents']);
+      break;
+
+      case 'reqsaveprivacycontent':
+         $act->reqsaveprivacycontent($_POST['contents']);
+      break;
+
+      case 'reqsavecareercontent':
+         $act->reqsavecareercontent($_POST['contents']);
+      break;
+
+      case 'reqsavecontactcontent':
+         $act->reqsavecontactcontent($_POST['phone'],$_POST['address'],$_POST['company'],$_POST['email']);
+      break;
+
+      case 'reqsavesocialcontent':
+         $act->reqsavesocialcontent($_POST['facebook'],$_POST['twitter'],$_POST['instagram'],$_POST['google']);
+      break;
+
+      case 'reqlogout':
+         $auth->reqlogout();
+      break;
+
       default:
       break;
     }

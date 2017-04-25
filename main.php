@@ -13,6 +13,14 @@
   $act  = new ActivityApps($db,$util,$auth);
   $mail = new PHPMailer();
   $head = new Header();
+
+  $chkCookies  = json_decode($auth->reqchklogincookie());
+  $datCookies  = $chkCookies->{'returnBack'};
+
+  if($datCookies=="false")
+  {
+      echo "<script>document.location.href=\"login\"; </script>";
+  }
 ?>
 
 <!DOCTYPE html>
@@ -68,13 +76,13 @@
                                 </a>
 
                                 <ul class="dropdown-menu dropdown-menu-right arrow-dropdown-menu arrow-menu-right user-list notify-list">
-                                    <li>
+                                    <!-- <li>
                                         <h5>Hi, John</h5>
                                     </li>
                                     <li><a href="javascript:void(0)"><i class="ti-user m-r-5"></i> Profile</a></li>
                                     <li><a href="javascript:void(0)"><i class="ti-settings m-r-5"></i> Settings</a></li>
-                                    <li><a href="javascript:void(0)"><i class="ti-lock m-r-5"></i> Lock screen</a></li>
-                                    <li><a href="javascript:void(0)"><i class="ti-power-off m-r-5"></i> Logout</a></li>
+                                    <li><a href="javascript:void(0)"><i class="ti-lock m-r-5"></i> Lock screen</a></li> -->
+                                    <li><a href="javascript:void(0)" id="logout"><i class="ti-power-off m-r-5" ></i> Logout</a></li>
                                 </ul>
                             </li>
                         </ul>
@@ -130,7 +138,6 @@
       <script src="assets/js/jquery.core.js"></script>
       <script src="assets/js/jquery.app.js"></script>
 
-
       <script src="plugins/datatables/jquery.dataTables.min.js"></script>
       <script src="plugins/datatables/dataTables.bootstrap.js"></script>
       <script src="plugins/datatables/dataTables.buttons.min.js"></script>
@@ -184,3 +191,41 @@
       </script>
       </body>
 </html>
+
+<script>
+var initApps = function()
+{
+   $("#logout").click(logout);
+}
+
+var url = "API_admin/apiadmin.php";
+
+$(document).ready(initApps);
+
+function logout()
+{
+   $.ajax
+   ({
+      type     : "POST",
+      url      : url,
+      dataType : "JSON",
+      data     : "type=reqlogout",
+      cache    : false,
+      success  : function(JSONObject)
+      {
+         for(var key in JSONObject)
+         {
+            if(JSONObject.hasOwnProperty(key))
+            {
+               if(JSONObject[key]["type"]==="reslogout")
+               {
+                  var destination = JSONObject[key]["destination"];
+                  document.location.href=destination;
+               }
+            }
+         }
+      }
+   });
+   return false;
+}
+</script>

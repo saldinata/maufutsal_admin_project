@@ -13,6 +13,14 @@
   $act  = new ActivityApps($db,$util,$auth);
   $mail = new PHPMailer();
   $head = new Header();
+
+  $chkCookies  = json_decode($auth->reqchklogincookie());
+  $datCookies  = $chkCookies->{'returnBack'};
+
+  if($datCookies=="true")
+  {
+      echo "<script>document.location.href=\"main\"; </script>";
+  }
  ?>
 
 <!DOCTYPE html>
@@ -54,44 +62,40 @@
                         <div class="wrapper-page">
                             <div class="m-t-40 account-pages" style="    box-shadow: none;">
                                 <div class="text-center account-logo-box" style="background-color: rgba(38, 160, 38, 0.93);">
-                                    <h2 class="text-uppercase">
-                                        <a href="index-2.html" class="text-success">
+                                 <span style="text-transform: none; color :#ffffff;
+                                 ">
+                                    Authentication Login
+                                 </span>
 
-                                        </a>
-                                    </h2>
                                 </div>
                                 <div class="account-content" style="background-color: rgba(32, 33, 31, 0.17);">
-                                    <form class="form-horizontal" action="#">
+                                    <!-- <form class="form-horizontal"> -->
                                         <div class="form-group ">
                                             <div class="col-xs-12">
-                                                <input class="form-control" type="text" required="" placeholder="Username" autocomplete="off" style="color: #ffffff; border-bottom: 1px solid rgba(210, 210, 210, 0.25);">
+                                                <input class="form-control" type="text" required="" placeholder="Username" autocomplete="off" style="color: #ffffff; border-bottom: 1px solid rgba(210, 210, 210, 0.25);" id="username">
                                             </div>
                                         </div>
 
                                         <div class="form-group">
                                             <div class="col-xs-12">
-                                                <input class="form-control" type="password" required="" placeholder="Password" autocomplete="off" style="color: #ffffff;border-bottom: 1px solid rgba(210, 210, 210, 0.25);">
+                                                <input class="form-control" type="password" required="" placeholder="Password" autocomplete="off" style="color: #ffffff;border-bottom: 1px solid rgba(210, 210, 210, 0.25);" id="password">
                                             </div>
                                         </div>
 
                                         <div class="form-group account-btn text-center m-t-10">
                                             <div class="col-xs-12">
-                                                <button class="btn w-md btn-bordered btn-danger waves-effect waves-light" type="submit" style="    border-bottom: 2px solid #3ac131 !important;background-color: #3ac131 !important;
-                                                border: 1px solid #3ac131 !important;">Masuk</button>
+                                                <button class="btn w-md btn-bordered btn-danger waves-effect waves-light"  style="    border-bottom: 2px solid #3ac131 !important;background-color: #3ac131 !important;
+                                                border: 1px solid #3ac131 !important;margin-top: 15%;" id="btn_enter">Masuk</button>
                                             </div>
                                         </div>
 
-                                    </form>
+                                    <!-- </form> -->
 
                                     <div class="clearfix"></div>
 
                                 </div>
                             </div>
-                            <!-- end card-box-->
-
                         </div>
-                        <!-- end wrapper -->
-
                     </div>
                 </div>
             </div>
@@ -115,6 +119,7 @@
         <!-- App js -->
         <script src="assets/js/jquery.core.js"></script>
         <script src="assets/js/jquery.app.js"></script>
+        <script src="assets/js/login.js"></script>
 
     </body>
 </html>

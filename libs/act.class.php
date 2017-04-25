@@ -218,6 +218,276 @@ class ActivityApps
 		echo json_encode($dataRespons, JSON_PRETTY_PRINT);
 	}
 
+	public function reqsaveaboutcontent($contents)
+	{
+		$dataRespons = [];
+		$contents 	= $contents;
+
+		$this->util->setDefaultTimeZone("Asia/Bangkok");
+		$date_content 	= $this->util->getDateTimeToday();
+
+		$query 	= "SELECT * FROM tbl_web_about";
+		$chk_db 	= $this->db->getAllValue($query);
+
+		if(!empty($chk_db))
+		{
+			foreach($chk_db as $data_db)
+			{
+				$id_about = $data_db['id_about'];
+			}
+
+			$query = "UPDATE tbl_web_about SET date_content=?, content=? WHERE id_about=?";
+			$update_value = $this->db->updateValue($query,[$date_content,$contents,$id_about]);
+
+			array_push($dataRespons,
+			[
+				'type'	=> 'ressaveaboutcontent',
+				'state'	=> 'success'
+			]);
+		}
+		else
+		{
+			$query = "INSERT INTO tbl_web_about(date_content,content) VALUES(?,?)";
+			$insert_value = $this->db->insertValue($query,[$date_content,$contents]);
+
+			if($insert_value)
+			{
+				array_push($dataRespons,
+				[
+					'type'	=> 'ressaveaboutcontent',
+					'state'	=> 'success'
+				]);
+			}
+			else
+			{
+				array_push($dataRespons,
+				[
+					'type'	=> 'ressaveaboutcontent',
+					'state'	=> 'fail'
+				]);
+			}
+		}
+		echo json_encode($dataRespons, JSON_PRETTY_PRINT);
+	}
+
+
+
+	public function reqsaveprivacycontent($contents)
+	{
+		$dataRespons = [];
+		$contents 	= $contents;
+
+		$this->util->setDefaultTimeZone("Asia/Bangkok");
+		$date_content 	= $this->util->getDateTimeToday();
+
+		$query 	= "SELECT * FROM tbl_web_privacy";
+		$chk_db 	= $this->db->getAllValue($query);
+
+		if(!empty($chk_db))
+		{
+			foreach($chk_db as $data_db)
+			{
+				$id_privacy = $data_db['id_privacy'];
+			}
+
+			$query = "UPDATE tbl_web_privacy SET date_content=?, content=? WHERE id_privacy=?";
+			$update_value = $this->db->updateValue($query,[$date_content,$contents,$id_privacy]);
+
+			array_push($dataRespons,
+			[
+				'type'	=> 'ressaveprivacycontent',
+				'state'	=> 'success'
+			]);
+		}
+		else
+		{
+			$query = "INSERT INTO tbl_web_privacy(date_content,content) VALUES(?,?)";
+			$insert_value = $this->db->insertValue($query,[$date_content,$contents]);
+
+			if($insert_value)
+			{
+				array_push($dataRespons,
+				[
+					'type'	=> 'ressaveprivacycontent',
+					'state'	=> 'success'
+				]);
+			}
+			else
+			{
+				array_push($dataRespons,
+				[
+					'type'	=> 'ressaveprivacycontent',
+					'state'	=> 'fail'
+				]);
+			}
+		}
+		echo json_encode($dataRespons, JSON_PRETTY_PRINT);
+	}
+
+
+	public function reqsavecareercontent($contents)
+	{
+		$dataRespons = [];
+		$contents 	= $contents;
+
+		$this->util->setDefaultTimeZone("Asia/Bangkok");
+		$date_content 	= $this->util->getDateTimeToday();
+
+		$query 	= "SELECT * FROM tbl_web_career";
+		$chk_db 	= $this->db->getAllValue($query);
+
+		if(!empty($chk_db))
+		{
+			foreach($chk_db as $data_db)
+			{
+				$id_career = $data_db['id_career'];
+			}
+
+			$query = "UPDATE tbl_web_career SET date_content=?, content=? WHERE id_career=?";
+			$update_value = $this->db->updateValue($query,[$date_content,$contents,$id_career]);
+
+			array_push($dataRespons,
+			[
+				'type'	=> 'ressavecareercontent',
+				'state'	=> 'success'
+			]);
+		}
+		else
+		{
+			$query = "INSERT INTO tbl_web_career(date_content,content) VALUES(?,?)";
+			$insert_value = $this->db->insertValue($query,[$date_content,$contents]);
+
+			if($insert_value)
+			{
+				array_push($dataRespons,
+				[
+					'type'	=> 'ressavecareercontent',
+					'state'	=> 'success'
+				]);
+			}
+			else
+			{
+				array_push($dataRespons,
+				[
+					'type'	=> 'ressavecareercontent',
+					'state'	=> 'fail'
+				]);
+			}
+		}
+		echo json_encode($dataRespons, JSON_PRETTY_PRINT);
+	}
+
+
+	public function reqsavecontactcontent($phone,$address,$company,$email)
+	{
+		$dataRespons = [];
+
+		$phone 	= $this->util->sanitation($phone);
+		$address = $this->util->sanitation($address);
+		$company = $this->util->sanitation($company);
+		$email 	= $this->util->sanitation($email);
+
+
+		$query 	= "SELECT * FROM tbl_web_contact";
+		$chk_db 	= $this->db->getAllValue($query);
+
+		if(!empty($chk_db))
+		{
+			foreach($chk_db as $data_db)
+			{
+				$id_contact = $data_db['id_contact'];
+			}
+
+			$query = "UPDATE tbl_web_contact SET no_telp=?, alamat=?, perusahaan=?, email=? WHERE id_contact=?";
+			$update_value = $this->db->updateValue($query,[$phone,$address,$company,$email,$id_contact]);
+
+			array_push($dataRespons,
+			[
+				'type'	=> 'ressavecontactcontent',
+				'state'	=> 'success'
+			]);
+		}
+		else
+		{
+			$query = "INSERT INTO tbl_web_contact(no_telp,alamat,perusahaan,email) VALUES(?,?,?,?)";
+			$insert_value = $this->db->insertValue($query,[$phone,$address,$company,$email]);
+
+			if($insert_value)
+			{
+				array_push($dataRespons,
+				[
+					'type'	=> 'ressavecontactcontent',
+					'state'	=> 'success'
+				]);
+			}
+			else
+			{
+				array_push($dataRespons,
+				[
+					'type'	=> 'ressavecontactcontent',
+					'state'	=> 'fail'
+				]);
+			}
+		}
+		echo json_encode($dataRespons, JSON_PRETTY_PRINT);
+	}
+
+
+
+	public function reqsavesocialcontent($facebook,$twitter,$instagram,$google)
+	{
+		$dataRespons = [];
+
+		$facebook 	= $this->util->sanitation($facebook);
+		$twitter 	= $this->util->sanitation($twitter);
+		$instagram 	= $this->util->sanitation($instagram);
+		$google		= $this->util->sanitation($google);
+
+
+		$query 	= "SELECT * FROM tbl_web_social";
+		$chk_db 	= $this->db->getAllValue($query);
+
+		if(!empty($chk_db))
+		{
+			foreach($chk_db as $data_db)
+			{
+				$id_social = $data_db['id_social'];
+			}
+
+			$query = "UPDATE tbl_web_social SET facebook=?, twitter=?, instagram=?, google=? WHERE id_social=?";
+			$update_value = $this->db->updateValue($query,[$facebook,$twitter,$instagram,$google,$id_social]);
+
+			array_push($dataRespons,
+			[
+				'type'	=> 'ressavesocialcontent',
+				'state'	=> 'success'
+			]);
+		}
+		else
+		{
+			$query = "INSERT INTO tbl_web_social(facebook,twitter,instagram,google) VALUES(?,?,?,?)";
+			$insert_value = $this->db->insertValue($query,[$facebook,$twitter,$instagram,$google]);
+
+			if($insert_value)
+			{
+				array_push($dataRespons,
+				[
+					'type'	=> 'ressavesocialcontent',
+					'state'	=> 'success'
+				]);
+			}
+			else
+			{
+				array_push($dataRespons,
+				[
+					'type'	=> 'ressavesocialcontent',
+					'state'	=> 'fail'
+				]);
+			}
+		}
+		echo json_encode($dataRespons, JSON_PRETTY_PRINT);
+	}
+
 }
 
 ?>

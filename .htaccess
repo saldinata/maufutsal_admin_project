@@ -19,6 +19,7 @@ RewriteRule ^(.*)$ $1.html [L,QSA]
 #RewriteRule ^([a-zA-Z_-]+)\/?$ index.php?mov=$1 [NC]
 
 #for spesific page :
+RewriteRule ^main\/?$ main.php?mov=main [NC]
 RewriteRule ^item_demand\/?$ main.php?mov=item_demand [NC]
 RewriteRule ^slider\/?$ main.php?mov=slider [NC]
 RewriteRule ^about\/?$ main.php?mov=about [NC]
@@ -31,6 +32,14 @@ RewriteRule ^entry_dist\/?$ main.php?mov=entry_dist [NC]
 RewriteRule ^entry_product_dist\/?$ main.php?mov=entry_product_dist [NC]
 RewriteRule ^show_dist\/?$ main.php?mov=show_dist [NC]
 RewriteRule ^show_product_dist\/?$ main.php?mov=show_product_dist [NC]
+RewriteRule ^user_member\/?$ main.php?mov=user_member [NC]
+RewriteRule ^user_owner\/?$ main.php?mov=user_owner [NC]
+RewriteRule ^user_eo\/?$ main.php?mov=user_eo [NC]
+RewriteRule ^user_admin\/?$ main.php?mov=user_admin [NC]
+RewriteRule ^list_field\/?$ main.php?mov=list_field [NC]
+RewriteRule ^recon_reservation\/?$ main.php?mov=recon_reservation [NC]
+RewriteRule ^recon_trans_bank\/?$ main.php?mov=recon_trans_bank [NC]
+RewriteRule ^recon_atmb\/?$ main.php?mov=recon_atmb [NC]
 
 ErrorDocument 401 /error_page/401.php
 ErrorDocument 403 /error_page/403.php
