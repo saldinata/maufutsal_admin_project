@@ -40,6 +40,7 @@ RewriteRule ^list_field\/?$ main.php?mov=list_field [NC]
 RewriteRule ^recon_reservation\/?$ main.php?mov=recon_reservation [NC]
 RewriteRule ^recon_trans_bank\/?$ main.php?mov=recon_trans_bank [NC]
 RewriteRule ^recon_atmb\/?$ main.php?mov=recon_atmb [NC]
+RewriteRule ^add_user\/?$ main.php?mov=add_user [NC]
 
 ErrorDocument 401 /error_page/401.php
 ErrorDocument 403 /error_page/403.php

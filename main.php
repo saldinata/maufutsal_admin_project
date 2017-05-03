@@ -130,11 +130,27 @@
       <script src="assets/js/jquery.slimscroll.js"></script>
       <script src="assets/js/jquery.scrollTo.min.js"></script>
       <script src="plugins/switchery/switchery.min.js"></script>
+
+      <script src="plugins/bootstrap-tagsinput/js/bootstrap-tagsinput.min.js"></script>
+      <script type="text/javascript" src="plugins/multiselect/js/jquery.multi-select.js"></script>
+      <script type="text/javascript" src="plugins/jquery-quicksearch/jquery.quicksearch.js"></script>
+      <!-- <script src="plugins/select2/js/select2.min.js" type="text/javascript"></script> -->
+      <script src="plugins/bootstrap-select/js/bootstrap-select.min.js" type="text/javascript"></script>
       <script src="plugins/waypoints/jquery.waypoints.min.js"></script>
       <script src="plugins/counterup/jquery.counterup.min.js"></script>
-  		<script src="plugins/morris/morris.min.js"></script>
+  		<!-- <script src="plugins/morris/morris.min.js"></script> -->
   		<script src="plugins/raphael/raphael-min.js"></script>
       <script src="assets/pages/jquery.dashboard.js"></script>
+      <script src="plugins/bootstrap-filestyle/js/bootstrap-filestyle.min.js" type="text/javascript"></script>
+      <script src="plugins/bootstrap-touchspin/js/jquery.bootstrap-touchspin.min.js" type="text/javascript"></script>
+      <script src="plugins/bootstrap-maxlength/bootstrap-maxlength.min.js" type="text/javascript"></script>
+      <script type="text/javascript" src="plugins/autocomplete/jquery.mockjax.js"></script>
+      <script type="text/javascript" src="plugins/autocomplete/countries.js"></script>
+      <!-- <script type="text/javascript" src="plugins/autocomplete/jquery.autocomplete.min.js"></script> -->
+      <!-- <script type="text/javascript" src="assets/pages/jquery.autocomplete.init.js"></script> -->
+      <!--
+      <script type="text/javascript" src="assets/pages/jquery.form-advanced.init.js"></script>-->
+
       <script src="assets/js/jquery.core.js"></script>
       <script src="assets/js/jquery.app.js"></script>
 
@@ -192,7 +208,7 @@
       </body>
 </html>
 
-<script>
+<script type="text/javascript">
 var initApps = function()
 {
    $("#logout").click(logout);

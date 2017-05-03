@@ -67,10 +67,15 @@ class Authentication
 		echo json_encode($dataRespons,JSON_PRETTY_PRINT);
 	}
 
+	public function reqadduser($username,$password,$level_user)
+	{
+
+	}
+
 	public function reqlogout()
 	{
 		$dataRespons = [];
-		
+
 		$user = $this->util->decode($_COOKIE["mfadsytusr"]);
 		setcookie("mfadsytusr", $user, time() - 3600, "/");
 

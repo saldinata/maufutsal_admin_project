@@ -488,6 +488,83 @@ class ActivityApps
 		echo json_encode($dataRespons, JSON_PRETTY_PRINT);
 	}
 
+
+	public function reqpubimg($id)
+	{
+		$id 		= $this->util->sanitation($id);
+		$state 	= "A";
+		$dataRespons = [];
+
+		$query = "UPDATE tbl_slider SET state=? WHERE id_slider=?";
+		$respons = $this->db->updateValue($query,[$state,$id]);
+
+		array_push($dataRespons,
+		[
+			'type'		=> 'respubimg',
+			'publish'	=> 'success'
+		]);
+
+		echo json_encode($dataRespons, JSON_PRETTY_PRINT);
+	}
+
+	public function reqnopubimg($id)
+	{
+		$id 		= $this->util->sanitation($id);
+		$state 	= "NA";
+		$dataRespons = [];
+
+		$query = "UPDATE tbl_slider SET state=? WHERE id_slider=?";
+		$respons = $this->db->updateValue($query,[$state,$id]);
+
+		array_push($dataRespons,
+		[
+			'type'			=> 'resnopubimg',
+			'nonpublish'	=> 'success'
+		]);
+
+		echo json_encode($dataRespons, JSON_PRETTY_PRINT);
+	}
+
+	public function reqdelsliderimg($id)
+	{
+		$id 		= (int) $this->util->sanitation($id);
+		$dataRespons = [];
+
+		$query 			= "SELECT * FROM tbl_slider WHERE id_slider=?";
+		$get_pict_dat	= $this->db->getValue($query,[$id]);
+		$pict_path		= "..\image\slider\\".$get_pict_dat['path'];
+
+		$query = "DELETE FROM tbl_slider WHERE id_slider=?";
+		$respons = $this->db->deleteValue($query,[$id]);
+
+		unlink($pict_path);
+
+		array_push($dataRespons,
+		[
+			'type'			=> 'resdelsliderimg',
+			'deleteimg'		=> 'success'
+		]);
+
+		echo json_encode($dataRespons, JSON_PRETTY_PRINT);
+	}
+
+	public function reqdelmemacc($id)
+	{
+		$id = (int) $this->util->sanitation($id);
+		$dataRespons = [];
+
+		$query = "DELETE FROM tbl_user WHERE id_user=?";
+		$respons = $this->db->deleteValue($query,[$id]);
+
+		array_push($dataRespons,
+		[
+			'type'			=> 'resdelmemacc',
+			'deleteacc'		=> 'success'
+		]);
+
+		echo json_encode($dataRespons, JSON_PRETTY_PRINT);
+
+	}
 }
 
 ?>

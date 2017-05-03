@@ -56,6 +56,26 @@
          $act->reqsavesocialcontent($_POST['facebook'],$_POST['twitter'],$_POST['instagram'],$_POST['google']);
       break;
 
+      case 'reqpubimg':
+         $act->reqpubimg($_POST['id']);
+      break;
+
+      case 'reqnopubimg':
+         $act->reqnopubimg($_POST['id']);
+      break;
+
+      case 'reqdelsliderimg':
+         $act->reqdelsliderimg($_POST['id']);
+      break;
+
+      case 'reqdelmemacc':
+         $act->reqdelmemacc($_POST['id']);
+      break;
+
+      case 'reqadduser':
+         $auth->reqadduser($_POST['username'],$_POST['password'],$_POST['level_user']);
+      break;
+      
       case 'reqlogout':
          $auth->reqlogout();
       break;

@@ -15,13 +15,13 @@
 
     <ul>
       <li>
-          <a href="main" class="waves-effect" style="color: #eaeaea;background-color:#409424;margin: 0px 0;"><i class="mdi mdi-view-dashboard" ></i><span> Dashboard </span></a>
+          <a href="main" class="waves-effect" style="color: #000000;background-color:#ebefeb;margin: 0px 0;"><i class="mdi mdi-view-dashboard" ></i><span> Dashboard </span></a>
      </li>
 
       <li class="menu-title">Distributor</li>
 
         <li class="has_sub">
-            <a href="javascript:void(0);" class="waves-effect" style="color: #eaeaea;background-color:#409424;"><i class="mdi mdi-view-dashboard"></i><span> Distributor Utility </span> <span class="menu-arrow"></span></a>
+            <a href="javascript:void(0);" class="waves-effect" style="color: #000000;background-color:#ebefeb;"><i class="mdi mdi-view-dashboard"></i><span> Distributor Utility </span> <span class="menu-arrow"></span></a>
             <ul class="list-unstyled">
                 <li><a href="entry_dist">Entry Distributor</a></li>
                 <li><a href="show_dist">Show Data Distributor</a></li>
@@ -36,7 +36,7 @@
         <li class="menu-title">Front End Website</li>
 
         <li class="has_sub">
-            <a href="javascript:void(0);" class="waves-effect" style="color: #eaeaea;background-color:#409424;"><i class="mdi mdi-view-dashboard"></i><span> Front End Utility </span> <span class="menu-arrow"></span></a>
+            <a href="javascript:void(0);" class="waves-effect" style="color: #000000;background-color:#ebefeb;"><i class="mdi mdi-view-dashboard"></i><span> Front End Utility </span> <span class="menu-arrow"></span></a>
             <ul class="list-unstyled">
                 <li><a href="slider">Slider</a></li>
                 <li><a href="about">Tentang</a></li>
@@ -51,15 +51,14 @@
         <li class="menu-title">Admin System</li>
 
         <li class="has_sub">
-            <a href="javascript:void(0);" class="waves-effect" style="color: #eaeaea;background-color:#409424;"><i class="mdi mdi-view-dashboard"></i><span> Admin Utility </span> <span class="menu-arrow"></span></a>
+            <a href="javascript:void(0);" class="waves-effect" style="color: #000000;background-color:#ebefeb;"><i class="mdi mdi-view-dashboard"></i><span> Admin Utility </span> <span class="menu-arrow"></span></a>
             <ul class="list-unstyled">
                 <li><a href="user_member">Daftar User Member</a></li>
                 <li><a href="user_owner">Daftar User Owner</a></li>
                 <li><a href="user_eo">Daftar User EO</a></li>
                 <li><a href="user_admin">Daftar User Admin</a></li>
                 <li><a href="list_field">Daftar Lapangan</a></li>
-                <li><a href="add_user_admin">Tambah User Admin</a></li>
-                <li><a href="add_user_owner">Tambah User Owner</a></li>
+                <li><a href="add_user">Tambah User</a></li>
             </ul>
         </li>
 
@@ -67,7 +66,7 @@
         <li class="menu-title">Finance</li>
 
         <li class="has_sub">
-            <a href="javascript:void(0);" class="waves-effect" style="color: #eaeaea;background-color:#409424;"><i class="mdi mdi-view-dashboard"></i><span> Transaction Utility </span> <span class="menu-arrow"></span></a>
+            <a href="javascript:void(0);" class="waves-effect" style="color: #000000;background-color:#ebefeb;"><i class="mdi mdi-view-dashboard"></i><span> Transaction Utility </span> <span class="menu-arrow"></span></a>
             <ul class="list-unstyled">
                 <li><a href="recon_reservation">Recon Trx Reservasi</a></li>
                 <li><a href="recon_trans_bank">Recon Trx Trans Bank</a></li>

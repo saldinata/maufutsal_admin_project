@@ -11,7 +11,7 @@
 
     <div class="row text-center">
         <div class="col-lg-2 col-md-4 col-sm-6">
-            <div class="card-box widget-box-one" style="background-color:#737273;">
+            <div class="card-box widget-box-one" style="background-color:#0f6b38;">
                 <div class="wigdet-one-content">
                     <h2 class="text-danger">
                        <?php
@@ -34,7 +34,7 @@
         </div><!-- end col -->
 
         <div class="col-lg-2 col-md-4 col-sm-6">
-            <div class="card-box widget-box-one" style="background-color:#737273;">
+            <div class="card-box widget-box-one" style="background-color:#0f6b38;">
                 <div class="wigdet-one-content">
                     <h2 class="text-dark">
                        <?php
@@ -58,7 +58,7 @@
         </div><!-- end col -->
 
         <div class="col-lg-2 col-md-4 col-sm-6">
-            <div class="card-box widget-box-one" style="background-color:#737273;">
+            <div class="card-box widget-box-one" style="background-color:#0f6b38;">
                 <div class="wigdet-one-content">
                     <h2 class="text-success">
                        <?php
@@ -82,7 +82,7 @@
         </div><!-- end col -->
 
         <div class="col-lg-2 col-md-4 col-sm-6">
-            <div class="card-box widget-box-one" style="background-color:#737273;">
+            <div class="card-box widget-box-one" style="background-color:#0f6b38;">
                 <div class="wigdet-one-content">
                     <h2 class="text-warning">
                        <?php
@@ -106,7 +106,7 @@
         </div><!-- end col -->
 
         <div class="col-lg-2 col-md-4 col-sm-6">
-            <div class="card-box widget-box-one" style="background-color:#737273;">
+            <div class="card-box widget-box-one" style="background-color:#0f6b38;">
                 <div class="wigdet-one-content">
                     <h2 class="text-primary">
                        <?php
@@ -130,7 +130,7 @@
         </div><!-- end col -->
 
         <div class="col-lg-2 col-md-4 col-sm-6">
-            <div class="card-box widget-box-one" style="background-color:#737273;">
+            <div class="card-box widget-box-one" style="background-color:#0f6b38;">
                 <div class="wigdet-one-content">
                     <h2 class="text-danger">
                        <?php
@@ -157,7 +157,7 @@
 
    <div class="row text-center">
       <div class="col-lg-2 col-md-4 col-sm-6">
-          <div class="card-box widget-box-one" style="background-color:#737273;">
+          <div class="card-box widget-box-one" style="background-color:#0f6b38;">
              <div class="wigdet-one-content">
                   <h2 class="text-danger">
                      <?php
@@ -179,7 +179,7 @@
       </div>
 
       <div class="col-lg-2 col-md-4 col-sm-6">
-          <div class="card-box widget-box-one" style="background-color:#737273;">
+          <div class="card-box widget-box-one" style="background-color:#0f6b38;">
              <div class="wigdet-one-content">
                   <h2 class="text-danger">
                      <?php
@@ -210,7 +210,7 @@
       </div>
 
       <div class="col-lg-2 col-md-4 col-sm-6">
-          <div class="card-box widget-box-one" style="background-color:#737273;">
+          <div class="card-box widget-box-one" style="background-color:#0f6b38;">
              <div class="wigdet-one-content">
                   <h2 class="text-danger">
                      <?php
