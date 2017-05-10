@@ -69,8 +69,27 @@ class Authentication
 
 	public function reqadduser($username,$password,$level_user)
 	{
+		$username 	= $this->util->sanitation($username);
+		$password	= $this->util->encode($this->util->sanitation($password));
+		$level_user	= $this->util->sanitation($level_user);
+		$flag_login = "1";
+		$flag_ft 	= "1";
+		$state 		= "1";
 
+		$dataRespons= [];
+
+		$query = "INSERT INTO tbl_user(username,password,level,flag_login,flag_ft,state) VALUES(?,?,?,?,?,?)";
+		$result = $this->db->insertValue($query,[$username,$password,$level_user,$flag_login,$flag_ft,$state]);
+
+		array_push($dataRespons,
+		[
+			'type'	=> 'resadduser',
+			'state'	=>	'success'
+		]);
+
+		echo json_encode($dataRespons,JSON_PRETTY_PRINT);
 	}
+
 
 	public function reqlogout()
 	{

@@ -563,7 +563,106 @@ class ActivityApps
 		]);
 
 		echo json_encode($dataRespons, JSON_PRETTY_PRINT);
+	}
 
+
+	public function reqdelownacc($id)
+	{
+		$id = (int) $this->util->sanitation($id);
+		$dataRespons = [];
+
+		$query 	= "SELECT * FROM tbl_field_information WHERE id_user=?";
+		$respons	= $this->db->getValue($query,[$id]);
+		$court_reg	= $respons['court_reg'];
+		$id_reg		= $respons['id_reg'];
+
+		$query 	= "DELETE FROM tbl_detail_owner_futsal WHERE id_reg=?";
+		$respons = $this->db->deleteValue($query,[$id_reg]);
+
+		$query 	= "DELETE FROM tbl_harga_lapangan WHERE court_reg=?";
+		$respons = $this->db->deleteValue($query,[$court_reg]);
+
+		$query 	= "DELETE FROM tbl_harga_pembaharuan WHERE court_reg=?";
+		$respons = $this->db->deleteValue($query,[$court_reg]);
+
+		$query 	= "DELETE FROM tbl_arena_futsal WHERE court_reg=?";
+		$respons = $this->db->deleteValue($query,[$court_reg]);
+
+		$query 	= "DELETE FROM tbl_user WHERE id_user=?";
+		$respons = $this->db->deleteValue($query,[$id]);
+
+		$query 	= "DELETE FROM tbl_field_information WHERE id_user=?";
+		$respons = $this->db->deleteValue($query,[$id]);
+
+		array_push($dataRespons,
+		[
+			'type'			=> 'resdelownacc',
+			'deleteacc'		=> 'success'
+		]);
+
+		echo json_encode($dataRespons, JSON_PRETTY_PRINT);
+	}
+
+	public function reqconfieresev($idbooking)
+	{
+		$idbooking 		= $this->util->sanitation($idbooking);
+		$dataRespons	= [];
+		$verification 	= "2";
+
+		$query 	= "UPDATE tbl_booking_lapangan SET verification=? WHERE id_booking=? ";
+		$result 	= $this->db->updateValue($query,[$verification,$idbooking]);
+
+		array_push($dataRespons,
+		[
+			'type'	=> 'resconfieresev',
+			'state'	=> 'success'
+		]);
+
+		echo json_encode($dataRespons,JSON_PRETTY_PRINT);
+	}
+
+
+	public function reqpayresfiedet($idbooking)
+	{
+		$idbooking 		= $this->util->sanitation($idbooking);
+		$dataRespons	= [];
+
+		$query	= "SELECT * FROM tbl_booking_lapangan WHERE id_booking=?";
+		$result 	= $this->db->getAllValue($query,[$idbooking]);
+
+		foreach($result as $data)
+		{
+			$court_reg 		= $data['court_reg'];
+			$code_area		= $data['code_arena'];
+			$code_category	= $data['code_category'];
+			$bookers_mail 	= $data['id_user_member'];
+
+
+			$query 		= "SELECT * FROM tbl_field_information WHERE court_reg=?";
+			$field_data	= $this->db->getValue($query,[$court_reg]);
+
+			$query		= "SELECT * FROM tbl_arena_futsal WHERE code_arena=?";
+			$arena_data	= $this->db->getValue($query,[$code_area]);
+
+			$query 		= "SELECT * FROM tbl_user WHERE username=?";
+			$user_data 	= $this->db->getValue($query,[$bookers_mail]);
+
+			array_push($dataRespons,
+			[
+				'type'			=> 'respayresfiedet',
+				'date_time'		=> $data['date_time'],
+				'field_name'	=> $field_data['nama_lapangan'],
+				'address'		=> $field_data['alamat'],
+				'arena_name'	=> $arena_data['nama_arena'],
+				'usage'			=> $data['jam_mulai']."-".$data['jam_akhir'],
+				'booking_num'	=> $data['nomor_booking'],
+				'bookers_mail'	=> $bookers_mail,
+				'bookers_name'	=> $user_data['name'],
+				'nominal_trx'	=> $data['price']
+			]);
+		}
+
+		echo json_encode($dataRespons,JSON_PRETTY_PRINT);
 	}
 }
 

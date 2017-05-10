@@ -25,7 +25,7 @@
                     &nbsp;&nbsp;Username
                   </label>
 
-                  <input type="text" class="form-control" placeholder="Username" id="username">
+                  <input type="text" class="form-control" placeholder="Username" id="username" autocomplete="off">
               </div>
 
               <div class="form-group">
@@ -33,7 +33,7 @@
                     <i class="mdi  mdi mdi-package"></i>
                     &nbsp;&nbsp;Password
                   </label>
-                  <input type="password" class="form-control" placeholder="Password" id="password">
+                  <input type="password" class="form-control" placeholder="Password" id="password" autocomplete="off">
               </div>
 
               <div class="form-group">

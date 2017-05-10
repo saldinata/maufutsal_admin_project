@@ -72,10 +72,26 @@
          $act->reqdelmemacc($_POST['id']);
       break;
 
+      case 'reqdelownacc':
+         $act->reqdelownacc($_POST['id']);
+      break;
+
+      case 'reqresetowneracc':
+         $act->reqresetowneracc($_POST['id']);
+      break;
+
       case 'reqadduser':
          $auth->reqadduser($_POST['username'],$_POST['password'],$_POST['level_user']);
       break;
-      
+
+      case 'reqconfieresev':
+         $act->reqconfieresev($_POST['idbooking']);
+      break;
+
+      case 'reqpayresfiedet':
+         $act->reqpayresfiedet($_POST['idbooking']);
+      break;
+
       case 'reqlogout':
          $auth->reqlogout();
       break;

@@ -25,7 +25,7 @@
                     <th style="background-color: #656664;font-size: 13px;text-align: center;font-size: 11px;">Username </th>
                     <th style="background-color: #656664;font-size: 13px;text-align: center;font-size: 11px;">Tanggal Terdaftar</th>
                     <th style="background-color: #656664;font-size: 13px;text-align: center;font-size: 11px;">ID Reg</th>
-                     <th style="background-color: #656664;font-size: 13px;text-align: center;font-size: 11px;">Opsional</th>
+                    <th style="background-color: #656664;font-size: 13px;text-align: center;font-size: 11px;">Opsional</th>
 
                 </tr>
               </thead>
@@ -48,8 +48,8 @@
                     echo "<td style=\"font-size: 11px;\">".$data_member['username']."</td>";
                     echo "<td class=\"text-center\" style=\"font-size: 11px;\">".$date_join."</td>";
                     echo "<td class=\"text-center\" style=\"font-size: 11px;\">".$data_member['id_reg']."</td>";
-                    echo "<td class=\"text-center\" style=\"font-size: 11px;\">";
 
+                    echo "<td class=\"text-center\" style=\"font-size: 11px;\">";
                     echo "<button class=\"btn btn-icon waves-effect btn-default\" id=\"reset$counter\"><i class=\"fa fa-send-o (alias)\"></i> </button>";
                     echo "&nbsp;&nbsp;";
                     echo "<button class=\"btn btn-icon waves-effect btn-default\" id=\"del$counter\" style=\"background-color:#747575;\"><i class=\"fa fa-trash-o\" style=\"background-color:#747575;color:#f5f5f5;\"></i> </button>";

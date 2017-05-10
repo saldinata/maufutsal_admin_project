@@ -71,6 +71,7 @@
                 <li><a href="recon_reservation">Recon Trx Reservasi</a></li>
                 <li><a href="recon_trans_bank">Recon Trx Trans Bank</a></li>
                 <li><a href="recon_atmb">Recon Trx ATM Bersama</a></li>
+                <li><a href="conf_reservation">Konfir Reservasi Lapangan</a></li>
             </ul>
         </li>
 
