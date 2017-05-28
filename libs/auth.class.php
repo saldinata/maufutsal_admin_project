@@ -75,7 +75,7 @@ class Authentication
 		$level_user	= $this->util->sanitation($level_user);
 		$flag_login = "1";
 		$flag_ft 	= "1";
-		$state 		= "1";
+		$state 		= "0";
 		$activate 	= "1";
 		$code_act	= $this->util->code_activation();
 		$id_reg		= $this->util->registration_id();
