@@ -3,7 +3,7 @@
 class Utility
 {
 	protected $temp_variable = null;
-	protected $skey = "tidakadatidakada";
+	protected $skey = "logitechlogitech";
 
 	public function startSession()
 	{
@@ -14,6 +14,17 @@ class Utility
 	public function hideErrorReporting()
 	{
 		error_reporting(0);
+	}
+
+	public function code_activation()
+	{
+		return md5(uniqid(rand()));
+	}
+
+	public function registration_id()
+	{
+		$this->setDefaultTimeZone("Asia/Bangkok");
+		return date("Ymd").time();
 	}
 
 	public function setDefaultTimeZone($timezones)

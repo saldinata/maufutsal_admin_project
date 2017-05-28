@@ -81,7 +81,7 @@
       break;
 
       case 'reqadduser':
-         $auth->reqadduser($_POST['username'],$_POST['password'],$_POST['level_user']);
+         $auth->reqadduser($_POST['name'],$_POST['username'],$_POST['password'],$_POST['level_user']);
       break;
 
       case 'reqconfieresev':

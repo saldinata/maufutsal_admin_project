@@ -25,6 +25,7 @@
                     <th style="background-color: #656664;font-size: 13px;text-align: center;font-size: 11px;">Username </th>
                     <th style="background-color: #656664;font-size: 13px;text-align: center;font-size: 11px;">Tanggal Terdaftar</th>
                     <th style="background-color: #656664;font-size: 13px;text-align: center;font-size: 11px;">ID Reg</th>
+                     <th style="background-color: #656664;font-size: 13px;text-align: center;font-size: 11px;">Status</th>
                     <th style="background-color: #656664;font-size: 13px;text-align: center;font-size: 11px;">Opsional</th>
 
                 </tr>
@@ -40,6 +41,7 @@
                   foreach($get_member as $data_member)
                   {
                      $id_user = $data_member['id_user'];
+                     $state   = $data_member['status_aktivasi']== "1" ? "<span class=\"label label-success\" style=\"background-color: #a3a4a3;font-size: 10px;\" >ACTIVATED</span>" : "<span class=\"label label-danger\" style=\"background-color: #D50000;font-size: 10px;\">INACTIVE</span>";
                      $counter++;
                      $date_join = $util->changeFormatDateFromNumberToString(substr($data_member['id_reg'],0,8));
 
@@ -48,11 +50,11 @@
                      echo "<td style=\"font-size: 11px;\">".$data_member['username']."</td>";
                      echo "<td class=\"text-center\" style=\"font-size: 11px;\">".$date_join."</td>";
                      echo "<td class=\"text-center\" style=\"font-size: 11px;\">".$data_member['id_reg']."</td>";
-
+                     echo "<td class=\"text-center\" style=\"font-size: 11px;\">".$state."</td>";
                      echo "<td class=\"text-center\" style=\"font-size: 11px;\">";
                      echo "<button class=\"btn btn-icon waves-effect btn-default\" id=\"reset$counter\"><i class=\"fa fa-send-o (alias)\"></i> </button>";
                      echo "&nbsp;&nbsp;";
-                     echo "<button class=\"btn btn-icon waves-effect btn-default\" id=\"del$counter\" style=\"background-color:#747575;\"><i class=\"fa fa-trash-o\" style=\"background-color:#747575;color:#f5f5f5;\"></i> </button>";
+                     echo "<button class=\"btn btn-icon waves-effect btn-default\" id=\"del$counter\" style=\"background-color:#747575;color:#f5f5f5;border:none;\"><i class=\"fa fa-trash-o\"></i> </button>";
                      echo "</td>";
 
                      echo "<input type=\"hidden\" value=\"$id_user\" id=\"iduser$counter\" readonly/>";

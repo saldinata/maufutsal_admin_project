@@ -67,19 +67,23 @@ class Authentication
 		echo json_encode($dataRespons,JSON_PRETTY_PRINT);
 	}
 
-	public function reqadduser($username,$password,$level_user)
+	public function reqadduser($name,$username,$password,$level_user)
 	{
+		$name 		= $this->util->sanitation($name);
 		$username 	= $this->util->sanitation($username);
 		$password	= $this->util->encode($this->util->sanitation($password));
 		$level_user	= $this->util->sanitation($level_user);
 		$flag_login = "1";
 		$flag_ft 	= "1";
 		$state 		= "1";
+		$activate 	= "1";
+		$code_act	= $this->util->code_activation();
+		$id_reg		= $this->util->registration_id();
 
 		$dataRespons= [];
 
-		$query = "INSERT INTO tbl_user(username,password,level,flag_login,flag_ft,state) VALUES(?,?,?,?,?,?)";
-		$result = $this->db->insertValue($query,[$username,$password,$level_user,$flag_login,$flag_ft,$state]);
+		$query = "INSERT INTO tbl_user(name,username,password,level,flag_login,flag_ft,state,status_aktivasi,id_reg,kode_aktivasi) VALUES(?,?,?,?,?,?,?,?,?,?)";
+		$result = $this->db->insertValue($query,[$name,$username,$password,$level_user,$flag_login,$flag_ft,$state,$activate,$id_reg,$code_act]);
 
 		array_push($dataRespons,
 		[

@@ -19,31 +19,40 @@
           <hr style="border-top: 1px solid #e5e4e4;"/>
 
           <form role="form">
-              <div class="form-group">
+               <div class="form-group">
+                 <label>
+                   <i class="mdi mdi-account-outline"></i>
+                   &nbsp;&nbsp;Full Name
+                 </label>
+
+                 <input type="text" class="form-control" placeholder="Full Name" id="name" autocomplete="off">
+               </div>
+
+               <div class="form-group">
                   <label>
                     <i class="mdi mdi-account-outline"></i>
-                    &nbsp;&nbsp;Username
+                    &nbsp;&nbsp;Email ( as username login )
                   </label>
 
-                  <input type="text" class="form-control" placeholder="Username" id="username" autocomplete="off">
-              </div>
+                  <input type="text" class="form-control" placeholder="Email address" id="username" autocomplete="off">
+               </div>
 
-              <div class="form-group">
+               <div class="form-group">
                   <label>
                     <i class="mdi  mdi mdi-package"></i>
                     &nbsp;&nbsp;Password
                   </label>
                   <input type="password" class="form-control" placeholder="Password" id="password" autocomplete="off">
-              </div>
+               </div>
 
-              <div class="form-group">
+               <div class="form-group">
                   <label>
                     <i class="mdi mdi mdi-wallet"></i>
                     &nbsp;&nbsp;&nbsp;Level User
                   </label>
-              </div>
+               </div>
 
-              <div class="form-group">
+               <div class="form-group">
                  <select class="form-control select2" id="level_user">
                     <option>Pilihan</option>
                     <option value="admin">Admin</option>
@@ -51,7 +60,7 @@
                     <option value="eo">EO</option>
                 </select>
                 <button class="btn btn-success waves-effect waves-light" style="background-color:#61ad18 !important; border: 1px solid #7ab915 !important; margin-top: 3%; margin-left: 0%; margin-bottom: 2%;" id="save_create_data"> Simpan Data </button>
-            </div>
+               </div>
           </form>
         </div>
       </div>
@@ -75,6 +84,7 @@
 
   function saveDataDist()
   {
+    var name      = document.getElementById('name').value;
     var username  = document.getElementById('username').value;
     var password  = document.getElementById('password').value;
     var level_user= document.getElementById('level_user').value;
@@ -84,7 +94,7 @@
         type      : "POST",
         url       : url,
         dataType  : "JSON",
-        data      : "type=reqadduser"+"&username="+username+"&password="+password+"&level_user="+level_user,
+        data      : "type=reqadduser"+"&username="+username+"&password="+password+"&level_user="+level_user+"&name="+name,
         cache     : false,
         success   : function(JSONObject)
         {
@@ -100,6 +110,7 @@
                   document.getElementById('username').value="";
                   document.getElementById('password').value="";
                   document.getElementById('level_user').value="";
+                  document.getElementById('name').value="";
                 }
                 else
                 {
