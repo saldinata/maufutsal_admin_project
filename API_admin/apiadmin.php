@@ -92,8 +92,24 @@
          $act->reqpayresfiedet($_POST['idbooking']);
       break;
 
+      case 'reqconfigpayturn':
+         $act->reqconfigpayturn($_POST['idbooking']);
+      break;
+
+      case 'reqpayturninfo':
+        $act->reqpayturninfo($_POST['idbooking']);
+      break;
+
       case 'reqlogout':
          $auth->reqlogout();
+      break;
+
+      case 'reqapprate':
+         $act->reqapprate($_POST['idharga']);
+      break;
+
+      case 'reqrejectrate':
+         $act->reqrejectrate($_POST['idharga']);
       break;
 
       default:

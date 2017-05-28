@@ -18,12 +18,13 @@
 
             <hr style="border-top: 1px solid #e5e4e4;"/>
 
-            <table id="datatable" class="table table-striped table-colored table-info">
+            <table id="dataRecon" class="table table-striped table-colored table-info">
               <thead>
                 <tr>
-                    <th style="background-color: #656664;font-size: 13px;text-align: center;font-size: 11px;">Date Time</th>
-                    <th style="background-color: #656664;font-size: 13px;text-align: center;font-size: 11px;">Nominal Transaction </th>
-                    <th style="background-color: #656664;font-size: 13px;text-align: center;font-size: 11px;">Nomor Booking </th>
+                   <th style="background-color: #656664;font-size: 13px;text-align: center;font-size: 11px;">Date Time</th>
+                   <th style="background-color: #656664;font-size: 13px;text-align: center;font-size: 11px;">Nominal Transaction </th>
+                   <th style="background-color: #656664;font-size: 13px;text-align: center;font-size: 11px;">Nomor Booking </th>
+                   <th style="background-color: #656664;font-size: 13px;text-align: center;font-size: 11px;">Status </th>
                 </tr>
               </thead>
 
@@ -34,11 +35,27 @@
 
                   foreach($get_all_dist as $data_trx)
                   {
-                    echo "<tr>";
-                    echo "<td style=\"font-size: 11px;\">".$data_trx['date_time']."</td>";
-                    echo "<td style=\"font-size: 11px;\">".$data_trx['price']."</td>";
-                    echo "<td style=\"font-size: 11px;\">".$data_trx['nomor_booking']."</td>";
-                    echo "</tr>";
+                     $verification = $data_trx['verification'];
+
+                     echo "<tr>";
+                     echo "<td style=\"font-size: 11px;text-align: center;\">".$data_trx['date_time']."</td>";
+                     echo "<td style=\"font-size: 11px;text-align: right;\">"."Rp.".number_format($data_trx['price'])."</td>";
+                     echo "<td style=\"font-size: 11px;text-align: center;\">".$data_trx['nomor_booking']."</td>";
+
+                     if($verification == "0")
+                     {
+                        echo "<td style=\"font-size: 13px;text-align: center;\"><span class=\"label label-default\"> Reservasi Baru</span></td>";
+                     }
+                     else if($verification == "1")
+                     {
+                        echo "<td style=\"font-size: 13px;text-align: center;\"><span class=\"label label-orange\">Menunggu Konfirmasi</span></td>";
+                     }
+                     else
+                     {
+                        echo "<td style=\"font-size: 13px;text-align: center;\"><span class=\"label label-success\">Sudah Dikonfirmasi</span></td>";
+                     }
+
+                     echo "</tr>";
                   }
 
 
@@ -52,5 +69,16 @@
       </div>
     </div>
 
-    </div> <!-- container -->
-</div> <!-- content -->
+    </div>
+</div>
+
+<script type="text/javascript">
+
+   var initApp = function()
+   {
+      var table = $('#dataRecon').dataTable();
+   }
+
+   $(document).ready(initApp);
+
+</script>

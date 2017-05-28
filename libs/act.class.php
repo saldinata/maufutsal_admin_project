@@ -622,6 +622,25 @@ class ActivityApps
 	}
 
 
+	public function reqconfigpayturn($idbooking)
+  	{
+  	    $dataRespons    = [];
+  	    $idbooking      = $this->util->sanitation($idbooking);
+  	    $verification   = "2";
+
+  	    $query  = "UPDATE tbl_member_kompetisi SET verification=? WHERE id_member_kompetisi=?";
+  	    $result = $this->db->updateValue($query,[$verification,$idbooking]);
+
+  	    array_push($dataRespons,
+  	    [
+  	        'type'  =>  'resconfigpayturn',
+  	        'state' =>  'success'
+  	    ]);
+
+  	    echo json_encode($dataRespons, JSON_PRETTY_PRINT);
+  	}
+
+
 	public function reqpayresfiedet($idbooking)
 	{
 		$idbooking 		= $this->util->sanitation($idbooking);
@@ -663,6 +682,80 @@ class ActivityApps
 		}
 
 		echo json_encode($dataRespons,JSON_PRETTY_PRINT);
+	}
+
+
+	public function reqpayturninfo($idbooking)
+	{
+		$idbooking 		= $this->util->sanitation($idbooking);
+		$dataRespons	= [];
+
+		$query	= "SELECT * FROM tbl_member_kompetisi WHERE id_member_kompetisi=?";
+		$result 	= $this->db->getAllValue($query,[$idbooking]);
+
+		  foreach($result as $data)
+		  {
+			  	$id_kompetisi = $data['id_kompetisi'];
+
+				$query 			= "SELECT * FROM tbl_kompetisi WHERE id_kompetisi=?";
+				$result_data	=  $this->db->getValue($query,[$id_kompetisi]);
+
+
+				array_push($dataRespons,
+				[
+					 'type'          	=> 'respayturninfo',
+					 'tanggal'       	=> $data['tanggal'],
+					 'tanggal_trx'		=> $data['booking_datetime'],
+					 'nominal'			=> $result_data['biaya'],
+					 'nama_kompetisi'	=> $result_data['nama_kompetisi'],
+					 'jenis_kompetisi'=> $result_data['jenis_kompetisi'],
+					 'nama_team'     	=> $data['nama_team'],
+					 'bank_name'     	=> $data['bank_name'],
+					 'bank_account'  	=> $data['account_no'],
+					 'account_name'  	=> $data['account_name'],
+					 'code_reg'      	=> $data['code_reg']
+				]);
+		  }
+
+		echo json_encode($dataRespons,JSON_PRETTY_PRINT);
+	}
+
+
+	public function reqapprate($idharga)
+	{
+		$idharga 		= $this->util->sanitation($idharga);
+		$dataRespons	= [];
+		$change_state	= "1";
+
+		$query 			= "UPDATE tbl_harga_lapangan SET status_price=? WHERE id_harga=?";
+		$result_dana	= $this->db->updateValue($query,[$change_state,$idharga]);
+
+		array_push($dataRespons,
+		[
+			'type'		=> 'resapprate',
+			'success'	=>	'true'
+		]);
+
+		echo json_encode($dataRespons,JSON_PRETTY_PRINT);
+	}
+
+
+	public function reqrejectrate($idharga)
+	{
+		$idharga 		= $this->util->sanitation($idharga);
+		$dataRespons 	= [];
+		$change_state	= "2";
+
+		$query 			= "UPDATE tbl_harga_lapangan SET status_price=? WHERE id_harga=?";
+		$result_dana	= $this->db->updateValue($query,[$change_state,$idharga]);
+
+		array_push($dataRespons,
+		[
+			'type'		=> 'resrejectrate',
+			'success'	=> 'true'
+		]);
+
+		echo json_encode($dataRespons, JSON_PRETTY_PRINT);
 	}
 }
 
