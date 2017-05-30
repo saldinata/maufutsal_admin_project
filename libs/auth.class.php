@@ -109,6 +109,23 @@ class Authentication
 		]);
 		echo json_encode($dataRespons,JSON_PRETTY_PRINT);
 	}
+        
+        public function reqchangestate($iduser)
+        {
+                $id_user     = $this->util->sanitation($iduser);
+                $dataRespons = [];
+                $state       = "1";
+                
+                $query       = "UPDATE tbl_user SET state=? WHERE id_user=?";
+                $result_data = $this->db->updateValue($query,[$state,$id_user]);
+                 
+                array_push($dataRespons,
+                [
+                    'type'     => 'reschangestate',
+                    'success'  => 'true'
+                ]);
+                echo json_encode($dataRespons,JSON_PRETTY_PRINT);
+        }
 }
 
 ?>

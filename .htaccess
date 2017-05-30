@@ -45,6 +45,7 @@ RewriteRule ^conf_reservation\/?$ main.php?mov=conf_reservation [NC]
 RewriteRule ^conf_turnamen_payment\/?$ main.php?mov=conf_turnamen_payment [NC]
 RewriteRule ^appv_new_price\/?$ main.php?mov=appv_new_price [NC]
 RewriteRule ^appv_change_price\/?$ main.php?mov=appv_change_price [NC]
+RewriteRule ^appv_info_data_owner\/?$ main.php?mov=appv_info_data_owner [NC]
 
 ErrorDocument 401 /error_page/401.php
 ErrorDocument 403 /error_page/403.php

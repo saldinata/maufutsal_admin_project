@@ -111,7 +111,11 @@
       case 'reqrejectrate':
          $act->reqrejectrate($_POST['idharga']);
       break;
-
+      
+      case 'reqchangestate' :
+          $auth->reqchangestate($_POST['iduser']);
+      break;
+  
       default:
       break;
     }

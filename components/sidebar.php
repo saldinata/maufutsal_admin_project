@@ -70,8 +70,15 @@
             </ul>
         </li>
 
+         <!-- <li class="menu-title">Approval Utility</li> -->
+        <li class="has_sub">
+             <a href="javascript:void(0);" class="waves-effect" style="color: #3a606b;background-color: rgba(122, 160, 88, 0.13);"><i class="mdi mdi-view-dashboard"></i><span> Approve Utility</span> <span class="menu-arrow"></span></a>
+              <ul class="list-unstyled">
+                <li><a href="appv_info_data_owner" style="font-size:12px;">Appv Info.Data Owner</a></li>
+            </ul>
+        </li>
+        
         <!-- <li class="menu-title">Rate</li> -->
-
         <li class="has_sub">
             <a href="javascript:void(0);" class="waves-effect" style="color: #3a606b;background-color: rgba(122, 160, 88, 0.13);"><i class="mdi mdi-view-dashboard"></i><span> Rate Utility</span> <span class="menu-arrow"></span></a>
             <ul class="list-unstyled">
